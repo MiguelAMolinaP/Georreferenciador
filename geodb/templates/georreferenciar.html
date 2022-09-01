@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}
+    Georreferenciador de bases de datos
+{% endblock %}
+{% block content %}
+    <main class="container-fluid">
+        <div class="row position-relative overflow-hidden p-3 p-md-1 m-md-1 text-center ">
+            <div class="col-md-6 p-lg-5 mx-auto my-5">
+                <h1 class="display-4 font-weight-normal">Georreferenciador</h1>
+                <p class="lead font-weight-normal">ingresa el archivo .csv</p>
+                <form  method="post" enctype="multipart/form-data">
+                    <input type="file" name="user_file">
+                    <input type="submit" value="Subir">
+                </form>
+            </div>
+            
+        </div>
+        <div class="row">
+            
+            <div class="col-md-4" aling = "text-center" id="tabla-archivos">
+                <h2 class="d-flex justify-content-center"> Archivos</h2>
+                <!-- <p>Click on one of the items to start buying</p> -->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <!-- Your Columns HERE -->
+                            <th scope="col">Archivo</th>
+                            <th scope="col" colspan="2" class="d-flex justify-content-center" id="opciones">Opciones</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Your rows inside the table HERE:  -->
+                        {% for file in files %}
+                        
+                            <tr>
+                                
+                                
+                                <td >{{file}}</td>
+                                
+                                <td>
+                                    <form method="POST">
+                                        {{ georreferenciar_form.hidden_tag() }}
+                                        <input id="filename" name="filename_pandas" type="hidden" value="{{file}}">
+                                        {{ georreferenciar_form.submit(class="btn btn-outline btn-success")}}
+                                    </form>
+                                </td>  
+                                <!--
+                                <td>  
+                                    <form method="POST">
+                                        {{ georreferenciar_form_google.hidden_tag() }}
+                                        <input id="filename" name="filename_google" type="hidden" value="{{file}}">
+                                        {{ georreferenciar_form_google.submit(class="btn btn-outline btn-info")}} 
+                                    </form>
+                                    <button class="btn btn-outline btn-info" data-toggle="modal" data-target="">Información</button>
+                                        <button class="btn btn-outline btn-success" type="submit">AAA</button> 
+                                </td>-->
+                                {% if filename %}
+                                    <td>
+                                        <a href="{{ url_for('georreferenciar.download_file', filename = filename)}}"><button class="btn btn-outline btn-info" >Descargar</button></a>
+                                    </td>
+                                {% endif %}
+                            </tr>
+                            
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            {% if mapa_route %}
+                <div class="col-md-6 px-2 ms-5" id="contenedor-mapa">
+                    <iframe class="justify-content-end" src="{{url_for('georreferenciar.show_map')}}" frameborder="0" id="mapa"> </iframe>       
+                </div>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}
+

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_016ecde2a5948e226172b8ffbc757780 {
+                    position: relative;
+                    width: 70.0%;
+                    height: 90.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    
+            <style>
+                #scroll_zoom_toggler_7e47b0112e87b95cf873f002b29726ed {
+                    position:absolute;
+                    width:35px;
+                    bottom:10px;
+                    height:35px;
+                    left:10px;
+                    background-color:#fff;
+                    text-align:center;
+                    line-height:35px;
+                    vertical-align: middle;
+                    }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_016ecde2a5948e226172b8ffbc757780" ></div>
+        
+    
+            <img id="scroll_zoom_toggler_7e47b0112e87b95cf873f002b29726ed"
+                 alt="scroll"
+                 src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/png/512/arrow-move.png"
+                 style="z-index: 999999"
+                 onclick="map_016ecde2a5948e226172b8ffbc757780.toggleScroll()">
+            </img>
+        
+</body>
+<script>    
+    
+            var map_016ecde2a5948e226172b8ffbc757780 = L.map(
+                "map_016ecde2a5948e226172b8ffbc757780",
+                {
+                    center: [6.2443382, -75.573553],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_016ecde2a5948e226172b8ffbc757780);
+
+            
+
+        
+    
+            var tile_layer_2d75103369e6d798d245b50d0cbe2125 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            var tile_layer_5a311a224f625398e17a4333867f8485 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            var tile_layer_621d66118e2694197fefc308e654ef46 = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            var tile_layer_bdb7c1bdee47464c7e1b485757b92455 = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            var tile_layer_f0814b64a06ede68c8444be6c759b5c7 = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            var tile_layer_898c66a107faaf9d252644d1fe918cb3 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            var tile_layer_8e71c2a92b847566af66f190664e7b23 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            var layer_control_a42291b2ca0a052a149af78abc534d9e = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_5a311a224f625398e17a4333867f8485,
+                    "stamenterrain" : tile_layer_621d66118e2694197fefc308e654ef46,
+                    "stamentoner" : tile_layer_bdb7c1bdee47464c7e1b485757b92455,
+                    "stamenwatercolor" : tile_layer_f0814b64a06ede68c8444be6c759b5c7,
+                    "cartodbpositron" : tile_layer_898c66a107faaf9d252644d1fe918cb3,
+                    "cartodbdark_matter" : tile_layer_8e71c2a92b847566af66f190664e7b23,
+                },
+                overlays :  {
+                },
+            };
+            L.control.layers(
+                layer_control_a42291b2ca0a052a149af78abc534d9e.base_layers,
+                layer_control_a42291b2ca0a052a149af78abc534d9e.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+            tile_layer_621d66118e2694197fefc308e654ef46.remove();
+            tile_layer_bdb7c1bdee47464c7e1b485757b92455.remove();
+            tile_layer_f0814b64a06ede68c8444be6c759b5c7.remove();
+            tile_layer_898c66a107faaf9d252644d1fe918cb3.remove();
+            tile_layer_8e71c2a92b847566af66f190664e7b23.remove();
+        
+    
+            var tile_layer_eb1192a83fe5e58ed3dac26a487acc0d = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_1ba99f80ed1fbac65ee0f6292c8c2aae = new L.Control.MiniMap(
+                tile_layer_eb1192a83fe5e58ed3dac26a487acc0d,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": true, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_016ecde2a5948e226172b8ffbc757780.addControl(mini_map_1ba99f80ed1fbac65ee0f6292c8c2aae);
+        
+    
+            map_016ecde2a5948e226172b8ffbc757780.scrollEnabled = true;
+
+            map_016ecde2a5948e226172b8ffbc757780.toggleScroll = function() {
+                if (this.scrollEnabled) {
+                    this.scrollEnabled = false;
+                    this.scrollWheelZoom.disable();
+                } else {
+                    this.scrollEnabled = true;
+                    this.scrollWheelZoom.enable();
+                }
+            };
+            map_016ecde2a5948e226172b8ffbc757780.toggleScroll();
+        
+    
+            L.control.fullscreen(
+                {"forceSeparateButton": false, "position": "topright", "title": "Full Screen", "titleCancel": "Exit Full Screen"}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            var circle_bcc8fe33a05adddc883d204e73caf186 = L.circle(
+                [6.03880857536, -75.7019460715],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_bcc8fe33a05adddc883d204e73caf186.bindTooltip(
+                `<div>
+                     4 Palos, Amagá, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_3a9e4ef3c0c961d024580d333dc5c565 = L.circle(
+                [7.02101791754, -75.9103455573],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_3a9e4ef3c0c961d024580d333dc5c565.bindTooltip(
+                `<div>
+                     El Seno, Peque, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_efa72a59a1d1fd34fdab9b439f030965 = L.circle(
+                [7.11626727561, -73.1325981781],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_efa72a59a1d1fd34fdab9b439f030965.bindTooltip(
+                `<div>
+                     Honda de Palmas, Bucaramanga, Santander
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_6f32c984ffc8d7ef9711283d8ad63c9d = L.circle(
+                [5.92955329158, -75.3345819959999],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_6f32c984ffc8d7ef9711283d8ad63c9d.bindTooltip(
+                `<div>
+                     Vereda las piedras, La Unión, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_1607ac31a2ad6b11ab7dd6f3d94a6c69 = L.circle(
+                [7.11626727561, -73.1325981781],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_1607ac31a2ad6b11ab7dd6f3d94a6c69.bindTooltip(
+                `<div>
+                     Sitio, Bucaramanga, Santander
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_4f66977d769301d0246e9bdec7712619 = L.circle(
+                [4.82718783235, -75.6824691212],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_4f66977d769301d0246e9bdec7712619.bindTooltip(
+                `<div>
+                     Acequia Planta Belmonte, Dosquebradas, Risaralda
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_f4e102ec19ba4e77a68c41ab8c7fe80f = L.circle(
+                [4.45365041583, -75.7864601773],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_f4e102ec19ba4e77a68c41ab8c7fe80f.bindTooltip(
+                `<div>
+                     San José, La Tebaida, Quindío
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_5e04d97f93e69b6efeb5cdaf2697330b = L.circle(
+                [1.5033409866, -77.2152316532],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_5e04d97f93e69b6efeb5cdaf2697330b.bindTooltip(
+                `<div>
+                     Zona Rural, San Lorenzo, Nariño
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_bab322619f084ee7542977c5f7a5ffe3 = L.circle(
+                [2.19824625206, -75.9797684232],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_bab322619f084ee7542977c5f7a5ffe3.bindTooltip(
+                `<div>
+                     I.P. El Pencil, La Argentina, Huila
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_09e1cd80231efd971dfe9947ad197714 = L.circle(
+                [5.61265250912, -75.5330810667],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_09e1cd80231efd971dfe9947ad197714.bindTooltip(
+                `<div>
+                     V. Arma, Aguadas, Caldas
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_e6a5f49e5dca180e9e26a1da3070719a = L.circle(
+                [2.26667937625, -75.8040049225],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_e6a5f49e5dca180e9e26a1da3070719a.bindTooltip(
+                `<div>
+                     Pital, Pital, Huila
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_f9c6c9731e151dc8eaddffbed2e97aaf = L.circle(
+                [1.85257835541, -76.0487449016],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_f9c6c9731e151dc8eaddffbed2e97aaf.bindTooltip(
+                `<div>
+                     Pitalito, Pitalito, Huila
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_e9fa8560d007ac75f74097d51d28c627 = L.circle(
+                [2.48605026371, -75.7298401662],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_e9fa8560d007ac75f74097d51d28c627.bindTooltip(
+                `<div>
+                     Tesalia, Tesalia, Huila
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_9b22d344929a511876d118c9fe2dacec = L.circle(
+                [5.08022752508, -75.1771510865],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_9b22d344929a511876d118c9fe2dacec.bindTooltip(
+                `<div>
+                     Carretera Fresno-Manizales km 24, Herveo, Tolima
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_7bcc4299a95913b4313afac77107207d = L.circle(
+                [6.33191193659, -72.6840249822],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_7bcc4299a95913b4313afac77107207d.bindTooltip(
+                `<div>
+                     Soatá, Soatá, Boyacá
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_37484536241257175de5fb6f56267a9e = L.circle(
+                [4.92344237437, -75.063420931],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_37484536241257175de5fb6f56267a9e.bindTooltip(
+                `<div>
+                     Líbano, Líbano, Tolima
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_06bc3386ad7ab74b720680a59d226222 = L.circle(
+                [1.5, -78.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_06bc3386ad7ab74b720680a59d226222.bindTooltip(
+                `<div>
+                     Carretera Panamericana, Pasto, Nariño
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_95c0fec1aedf45580baa88f489fc3299 = L.circle(
+                [1.5, -78.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_95c0fec1aedf45580baa88f489fc3299.bindTooltip(
+                `<div>
+                     V. Panamericana, San Andrés De Tumaco, Nariño
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_24621ef4f193c7600c9bbc56db2a5b63 = L.circle(
+                [0.5, -76.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_24621ef4f193c7600c9bbc56db2a5b63.bindTooltip(
+                `<div>
+                     Carretera Panamericana, Putumayo, Putumayo
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_6bd7c56b6480ce7aabda8959ef66c20f = L.circle(
+                [7.88341740579, -76.6259606537],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_6bd7c56b6480ce7aabda8959ef66c20f.bindTooltip(
+                `<div>
+                     B. Alfonso Lopez., Apartadó, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_3ae4932637c9e88d23d7101454ed5e39 = L.circle(
+                [4.62747361841, -75.096450741],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_3ae4932637c9e88d23d7101454ed5e39.bindTooltip(
+                `<div>
+                     Anzoátegui, Anzoátegui, Tolima
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_62d24f64b5d25344a04e8ab68fcce0b3 = L.circle(
+                [1.5, -78.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_62d24f64b5d25344a04e8ab68fcce0b3.bindTooltip(
+                `<div>
+                     km 22 V. Panamericana, Pasto, Nariño
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_7d3809fd5725f8c0cd95f1b7e5719738 = L.circle(
+                [5.06893301864, -74.3777279564],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_7d3809fd5725f8c0cd95f1b7e5719738.bindTooltip(
+                `<div>
+                     El Volador, Nocaima, Cundinamarca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_e0503b754ddd1e8a60d5a13598a60be5 = L.circle(
+                [8.27630677134, -73.8681404847],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_e0503b754ddd1e8a60d5a13598a60be5.bindTooltip(
+                `<div>
+                     Ocaña, Morales, Bolívar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_1f5480bcce3e78d9be96f2e9413493e8 = L.circle(
+                [4.27248167219, -74.4148256203],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_1f5480bcce3e78d9be96f2e9413493e8.bindTooltip(
+                `<div>
+                     Paramillo, Arbeláez, Cundinamarca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_d60030373bf2a04d1680727e5138f275 = L.circle(
+                [5.24914117123, -74.2912859352],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_d60030373bf2a04d1680727e5138f275.bindTooltip(
+                `<div>
+                     El Peñón, El Peñón, Cundinamarca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_404007124313afeda13b750bbeffcd90 = L.circle(
+                [5.35881671072, -74.3910201655],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_404007124313afeda13b750bbeffcd90.bindTooltip(
+                `<div>
+                     La Palma, La Palma, Cundinamarca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_cd92d70973803972c2c34bc11b1f7a18 = L.circle(
+                [5.45929034118, -74.3380243467],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_cd92d70973803972c2c34bc11b1f7a18.bindTooltip(
+                `<div>
+                     Yacopí, Yacopí, Cundinamarca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_d51ce4cee3adfae2cc6880377765a5f0 = L.circle(
+                [7.0, -75.5],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_d51ce4cee3adfae2cc6880377765a5f0.bindTooltip(
+                `<div>
+                     Bs. Caicedo El Salado y Santa Cruz, Medellín, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_c07e76ea92f04f9d38754ef1a8061595 = L.circle(
+                [5.27114176848, -75.4912546148],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_c07e76ea92f04f9d38754ef1a8061595.bindTooltip(
+                `<div>
+                     Carretera Neira-Aranzazu km 43, Aranzazu, Caldas
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_68d481e5fae9fd0f37666dba7c0473d7 = L.circle(
+                [5.05768819705, -75.4910489848],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_68d481e5fae9fd0f37666dba7c0473d7.bindTooltip(
+                `<div>
+                     V. Manizales-Fresno, Manizales, Caldas
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_9c6635d90d3d6a621332fc441acc5a4c = L.circle(
+                [5.153638261, -75.0356271476],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_9c6635d90d3d6a621332fc441acc5a4c.bindTooltip(
+                `<div>
+                     V. Manizales-Fresno, Fresno, Tolima
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_73951d06d73c91d6068d780ca534ddc9 = L.circle(
+                [5.17269076547, -72.5463002643],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_73951d06d73c91d6068d780ca534ddc9.bindTooltip(
+                `<div>
+                     Las Lajas (Unete inspección en Aguazul), Aguazul, Casanare
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_39cac8e5f14e71413cfeb0b9177e41f3 = L.circle(
+                [5.98764490579, -72.7491373831],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_39cac8e5f14e71413cfeb0b9177e41f3.bindTooltip(
+                `<div>
+                     Vda. Chitagoto, Paz De Río, Boyacá
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_1c14672703990659b51554e2c007a374 = L.circle(
+                [7.17162902996, -75.7646731654],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_1c14672703990659b51554e2c007a374.bindTooltip(
+                `<div>
+                     Carretera Medellín-Ituango, Ituango, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_b5f608a425a5433b97b8325995abe3b4 = L.circle(
+                [7.0, -75.5],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_b5f608a425a5433b97b8325995abe3b4.bindTooltip(
+                `<div>
+                     Carretera Medellín-Ituango, Medellín, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_6cbde8b2dabb3fce741d40eb882386e8 = L.circle(
+                [6.69050486211, -75.9463587004999],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_6cbde8b2dabb3fce741d40eb882386e8.bindTooltip(
+                `<div>
+                     Manglar, Giraldo, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_80e7db9b4c4d0afbc57978770e25a9c1 = L.circle(
+                [5.0, -74.1666667],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_80e7db9b4c4d0afbc57978770e25a9c1.bindTooltip(
+                `<div>
+                     entre Santa Lucía y Hoya Grande, Bogota D.C., Cundinamarca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_2c6de20609d2965c703f9baf68d06e57 = L.circle(
+                [4.81306417837, -74.3502279311],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_2c6de20609d2965c703f9baf68d06e57.bindTooltip(
+                `<div>
+                     entre Santa Lucía y Hoya Grande, Facatativa, Cundinamarca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_04a568df9b518a6d0a3fc1ed83525854 = L.circle(
+                [4.7127630154, -74.2115250018],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_04a568df9b518a6d0a3fc1ed83525854.bindTooltip(
+                `<div>
+                     entre Santa Lucía y Hoya Grande, Funza, Cundinamarca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_e05aea9aeb2ff5e8137ac7149dd27cca = L.circle(
+                [4.99307703418, -74.3311382109],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_e05aea9aeb2ff5e8137ac7149dd27cca.bindTooltip(
+                `<div>
+                     entre Santa Lucía y Hoya Grande, La Vega, Cundinamarca
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_9dd503fca13f1ed8c8204496d76753a1 = L.circle(
+                [7.97736233321, -75.1982903265],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_9dd503fca13f1ed8c8204496d76753a1.bindTooltip(
+                `<div>
+                     Caucasia, Caucasia, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_47182a0b6e424da22ee9a27a8bcb01c9 = L.circle(
+                [7.16533999984, -75.4391984392],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_47182a0b6e424da22ee9a27a8bcb01c9.bindTooltip(
+                `<div>
+                     Carretera Troncal del Norte, Valdivia, Antioquia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_97734470c0bc87850cb92df2b1531100 = L.circle(
+                [4.53598950231, -75.6807507586],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_97734470c0bc87850cb92df2b1531100.bindTooltip(
+                `<div>
+                     Sector La Línea, Armenia, Quindío
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_bec0c9d67d74a0700692996d60716f78 = L.circle(
+                [4.51528184598, -75.6490883624],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_bec0c9d67d74a0700692996d60716f78.bindTooltip(
+                `<div>
+                     Sector La Línea, Calarcá, Quindío
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_239f4f0376a3f639d329f897702e892d = L.circle(
+                [4.43667276154, -75.4354852634],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_239f4f0376a3f639d329f897702e892d.bindTooltip(
+                `<div>
+                     Sector La Línea, Cajamarca, Tolima
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_b905adf82b3324db76cf0bbc95d7b89b = L.circle(
+                [4.80568026503, -75.7171230555],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_b905adf82b3324db76cf0bbc95d7b89b.bindTooltip(
+                `<div>
+                     Cra 2 con calle 19, Pereira, Risaralda
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_2b73b20080f7bb39033422ccd47a6fad = L.circle(
+                [1.42705403082, -77.0967308309],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_2b73b20080f7bb39033422ccd47a6fad.bindTooltip(
+                `<div>
+                     Carretera Cano-El Tablón, El Tablón De Gómez, Nariño
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_d9d91ec3f96c98b481e69ab6dad6d9fb = L.circle(
+                [1.60026861271, -77.1311543535],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 10}
+            ).addTo(map_016ecde2a5948e226172b8ffbc757780);
+        
+    
+            circle_d9d91ec3f96c98b481e69ab6dad6d9fb.bindTooltip(
+                `<div>
+                     CarreteraTaminango-La Unión, La Unión, Nariño
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
